@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="WebRole1.MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+    </style>
+</head>
+<body bgcolor="#cccccc">
+    <form id="form1" runat="server">
+    <div>
+    </div>
+    <table class="style1">
+        <tr>
+            <td bgcolor="White" colspan="2" height="48">
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Giris.aspx" Text="Giris" Value="Giris"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="AnaSayfa.aspx" Text="AnaSayfa" Value="AnaSayfa"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Kayit.aspx" Text="Kayit" Value="Kayit"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Kod.aspx" Text="KodOlustur" Value="KodOlustur"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="DosyaYukle.aspx" Text="DosyaYukle" Value="DosyaYukle"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/DosyaIndir.aspx" Text="DosyaIndir" Value="DosyaIndir"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="GonderiSorgu.aspx" Text="GonderiSorgulama" Value="GonderiSorgu"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/KimlikSorgu.aspx" Text="KimlikSorgu" Value="KimlikSorgu"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/SpkSorgu.aspx" Text="FonSorgu" Value="FonSorgu"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Cikis.aspx" Text="Cikis" Value="Cikis"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+              
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="White" width="48">
+                &nbsp;</td>
+            <td bgcolor="White">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="White" colspan="2" align="center" height="48">
+                Bulut Bilisim Veri Guvenligi</td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

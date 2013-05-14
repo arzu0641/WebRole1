@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.spk.gov.tr/webservices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.spk.gov.tr/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service provides mutual funds portfolio values.&lt;br&gt;Bu web servis Yatırım Fonları Temel Bilgilerini (fon tutarları, pay sayısı, yatırımcı sayısı, portföy değeri, portföy dağılımı, birim fiyat bilgileri) sağlar.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.spk.gov.tr/webservices/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetFundsCodeName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cType" type="s1:char" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundsCodeNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFundsCodeNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYOCodeName">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetYOCodeNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYOCodeNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundInfos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFonKod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundInfosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFundInfosResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFundsSummaryInfos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="theDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundsSummaryInfosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFundsSummaryInfosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundPortfolioValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTakasCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCompanyType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateBegin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundPortfolioValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFundPortfolioValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundsPortfolioValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTakasCodeBegin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTakasCodeEnd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCompanyType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateBegin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundsPortfolioValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFundsPortfolioValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundPortfolioValuesMonthly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFonKod" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="theYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="theMonth" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundPortfolioValuesMonthlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFundPortfolioValuesMonthlyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundsPortfolioValuesDaily">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="theDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundsPortfolioValuesDailyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFundsPortfolioValuesDailyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYOPortfolioValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCompanyCodeBegin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCompanyCodeEnd" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateBegin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYOPortfolioValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYOPortfolioValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetFundsCodeNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFundsCodeName" />
+  </wsdl:message>
+  <wsdl:message name="GetFundsCodeNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFundsCodeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYOCodeNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYOCodeName" />
+  </wsdl:message>
+  <wsdl:message name="GetYOCodeNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYOCodeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFundInfosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFundInfos" />
+  </wsdl:message>
+  <wsdl:message name="GetFundInfosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFundInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFundsSummaryInfosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFundsSummaryInfos" />
+  </wsdl:message>
+  <wsdl:message name="GetFundsSummaryInfosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFundsSummaryInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFundPortfolioValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFundPortfolioValues" />
+  </wsdl:message>
+  <wsdl:message name="GetFundPortfolioValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFundPortfolioValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFundsPortfolioValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFundsPortfolioValues" />
+  </wsdl:message>
+  <wsdl:message name="GetFundsPortfolioValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFundsPortfolioValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFundPortfolioValuesMonthlySoapIn">
+    <wsdl:part name="parameters" element="tns:GetFundPortfolioValuesMonthly" />
+  </wsdl:message>
+  <wsdl:message name="GetFundPortfolioValuesMonthlySoapOut">
+    <wsdl:part name="parameters" element="tns:GetFundPortfolioValuesMonthlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFundsPortfolioValuesDailySoapIn">
+    <wsdl:part name="parameters" element="tns:GetFundsPortfolioValuesDaily" />
+  </wsdl:message>
+  <wsdl:message name="GetFundsPortfolioValuesDailySoapOut">
+    <wsdl:part name="parameters" element="tns:GetFundsPortfolioValuesDailyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYOPortfolioValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYOPortfolioValues" />
+  </wsdl:message>
+  <wsdl:message name="GetYOPortfolioValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYOPortfolioValuesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MFundsServiceSoap">
+    <wsdl:operation name="GetFundsCodeName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod yatırım fonları kod ve isimlerini döndürür.&lt;br&gt;Parametreler : Fon Tipi (A tipi fonlar için A, B tipi fonlar için B, Emeklilik fonları için E, veya tüm fonlar için T ).&lt;br&gt;This method returns fund codes and names of mutual funds. Method arguments : Fund Type (A for A type, B for B type, E for retirement funds, or T for All funds).</wsdl:documentation>
+      <wsdl:input message="tns:GetFundsCodeNameSoapIn" />
+      <wsdl:output message="tns:GetFundsCodeNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYOCodeName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod yatırım ortaklıkları kod ve isimlerini döndürür.&lt;br&gt;Parametreler : Fon Tipi (A tipi fonlar için A, B tipi fonlar için B, Emeklilik fonları için E, veya tüm fonlar için T ).&lt;br&gt;This method returns company codes and names of investment trusts. Method arguments : (A for A type, B for B type, E for retirement funds, or T for All funds).</wsdl:documentation>
+      <wsdl:input message="tns:GetYOCodeNameSoapIn" />
+      <wsdl:output message="tns:GetYOCodeNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFundInfos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod yatırım fonuna ait genel bilgileri verir.&lt;br&gt;parametreler: Fon Kodu&lt;br&gt;This method returns general infos of a mutual fund. Method arguments: Fund Code.</wsdl:documentation>
+      <wsdl:input message="tns:GetFundInfosSoapIn" />
+      <wsdl:output message="tns:GetFundInfosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsSummaryInfos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod tüm yatırım fonlarının toplam özet bilgilerini verilen tarih için dataset olarak döndürür.&lt;br&gt;parametreler: Tarih&lt;br&gt;This method returns summary information for all mutual fund types for the given date. Method arguments: Date (typeof datetime)</wsdl:documentation>
+      <wsdl:input message="tns:GetFundsSummaryInfosSoapIn" />
+      <wsdl:output message="tns:GetFundsSummaryInfosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFundPortfolioValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod tek bir yatırım fonu veya ortaklığı için verilen tarih aralığında günlük fon bilgilerini dataset olarak döndürür.&lt;br&gt;parametreler: Fon Kodu, Tipi (tüm yatırım fonları için YF, a ve b tipi yatırım fonları için AB, emeklilik yatırım fonları için E, yatırım ortaklıkları için YO), Başlangıç Tarihi, Bitiş Tarihi&lt;br&gt;This method returns daily portfolio values of a mutual fund or partnership for a given time span. Method arguments: Fund Code, Begin Date, End Date (typeof datetime)</wsdl:documentation>
+      <wsdl:input message="tns:GetFundPortfolioValuesSoapIn" />
+      <wsdl:output message="tns:GetFundPortfolioValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsPortfolioValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod birden çok yatırım fonunun veya ortaklığının isim aralığında ve tarih aralığında günlük fon bilgilerini dataset olarak döndürür.&lt;br&gt;parametreler: Fon Kodu Aralığı (Başlangıç Fon Kodu, Bitiş Fon Kodu), Tipi (tüm yatırım fonları için YF, a ve b tipi yatırım fonları için AB, emeklilik yatırım fonları için E, yatırım ortaklıkları için YO), Başlangıç Tarihi, Bitiş Tarihi    -&lt;br&gt;*** Kullanım Örnekleri =&gt; Örnek 1 : Akbank T.A.Ş. A Tipi Değişken Fon - BankEuropa Bankası A.Ş. B Tipi Tahvil ve Bono Fonu, 11.01.2005-12.01.2005 tarihleri için ===&gt; mfunds.GetFundsPortfolioValues("ADF","BET","YF","1/11/2005 12:00:00 AM","1/12/2005 12:00:00 AM"); &lt;br&gt;*** Örnek 2 : Doğan Emeklilik A.Ş. Esnek EYF - Yapı Kredi Emeklilik A.Ş. Esnek EYF, 11.01.2005-12.01.2005 tarihleri için ===&gt; mfunds.GetFundsPortfolioValues("DEE","YEE","E","1/11/2005 12:00:00 AM","1/12/2005 12:00:00 AM"); ***&lt;br&gt;This method returns daily portfolio values of mutual funds or partnerships for a given time span. Method arguments: Fund Code, Begin Date, End Date (typeof datetime)</wsdl:documentation>
+      <wsdl:input message="tns:GetFundsPortfolioValuesSoapIn" />
+      <wsdl:output message="tns:GetFundsPortfolioValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFundPortfolioValuesMonthly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod yatırım fonu bazında verilen yıl ve aya ait günlük fon bilgilerini dataset olarak döndürür.&lt;br&gt;parametreler: Fon Kodu, Yıl, Ay&lt;br&gt;This method returns daily portfolio values of a mutual fund for a given month and year. Method arguments: Fund Code, Year, Month.</wsdl:documentation>
+      <wsdl:input message="tns:GetFundPortfolioValuesMonthlySoapIn" />
+      <wsdl:output message="tns:GetFundPortfolioValuesMonthlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsPortfolioValuesDaily">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod gün bazında tüm yatırım fonlarının bilgileri ile fon tiplerine göre konsolide bilgileri dataset olarak döndürür.&lt;br&gt;Her fonun bilgilerinin yanı sıra A Tipi, B Tipi ve Tüm Yatırım Fonları için toplam bilgiler verilmektedir.&lt;br&gt;parametreler: tarih&lt;br&gt;This method returns daily portfolio values of all mutual funds and consolidated information respect to fund types. Method arguments: date (typeof datetime)</wsdl:documentation>
+      <wsdl:input message="tns:GetFundsPortfolioValuesDailySoapIn" />
+      <wsdl:output message="tns:GetFundsPortfolioValuesDailySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYOPortfolioValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bu metod yatırım ortaklığı bazında verilen tarih aralığında günlük portföy bilgilerini dataset olarak döndürür.&lt;br&gt;parametreler: Sirket Kodu, Başlangıç Tarihi, Bitiş Tarihi.&lt;br&gt;This method returns daily portfolio values of a investment trust for a given time span. Method arguments: Company Code, Begin Date, End Date (typeof datetime)</wsdl:documentation>
+      <wsdl:input message="tns:GetYOPortfolioValuesSoapIn" />
+      <wsdl:output message="tns:GetYOPortfolioValuesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MFundsServiceSoap" type="tns:MFundsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFundsCodeName">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetFundsCodeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYOCodeName">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetYOCodeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundInfos">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetFundInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsSummaryInfos">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetFundsSummaryInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundPortfolioValues">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetFundPortfolioValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsPortfolioValues">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetFundsPortfolioValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundPortfolioValuesMonthly">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetFundPortfolioValuesMonthly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsPortfolioValuesDaily">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetFundsPortfolioValuesDaily" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYOPortfolioValues">
+      <soap:operation soapAction="http://www.spk.gov.tr/webservices/GetYOPortfolioValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MFundsServiceSoap12" type="tns:MFundsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFundsCodeName">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetFundsCodeName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYOCodeName">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetYOCodeName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundInfos">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetFundInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsSummaryInfos">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetFundsSummaryInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundPortfolioValues">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetFundPortfolioValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsPortfolioValues">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetFundsPortfolioValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundPortfolioValuesMonthly">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetFundPortfolioValuesMonthly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFundsPortfolioValuesDaily">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetFundsPortfolioValuesDaily" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYOPortfolioValues">
+      <soap12:operation soapAction="http://www.spk.gov.tr/webservices/GetYOPortfolioValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MFundsService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service provides mutual funds portfolio values.&lt;br&gt;Bu web servis Yatırım Fonları Temel Bilgilerini (fon tutarları, pay sayısı, yatırımcı sayısı, portföy değeri, portföy dağılımı, birim fiyat bilgileri) sağlar.</wsdl:documentation>
+    <wsdl:port name="MFundsServiceSoap" binding="tns:MFundsServiceSoap">
+      <soap:address location="http://www.spk.gov.tr/webservices/MutualFundsPortfolioValues/MFundsService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MFundsServiceSoap12" binding="tns:MFundsServiceSoap12">
+      <soap12:address location="http://www.spk.gov.tr/webservices/MutualFundsPortfolioValues/MFundsService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
